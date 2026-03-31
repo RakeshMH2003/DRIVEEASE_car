@@ -1,0 +1,692 @@
+Driveease enhanced<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DriveEase — Premium Car Rental</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- ===== LOADER ===== -->
+<div id="loader">
+  <div class="loader-logo">DRIVEEASE</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav id="navbar">
+  <div class="nav-brand" onclick="showPage('home')" style="cursor:pointer">DRIVE<span>EASE</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('vehicles')">Vehicles</a></li>
+    <li><a href="#" onclick="showPage('about')">About</a></li>
+    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions">
+    <button class="btn-outline" onclick="openModal('signinModal')">Sign In</button>
+    <button class="btn-primary" onclick="openModal('signupModal')">Get Started</button>
+    <button class="btn-outline vendor-btn" onclick="openModal('vendorSigninModal')">Vendor</button>
+  </div>
+  <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+</nav>
+
+<main id="app">
+
+  <!-- ========== HOME PAGE ========== -->
+  <section id="page-home" class="page active">
+    <div class="hero">
+      <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-tag"><i class="fas fa-star"></i> Premium Fleet Available</div>
+        <h1 class="hero-title">DRIVE YOUR<br/><span class="accent">DREAM CAR</span><br/>TODAY</h1>
+        <p class="hero-sub">Luxury, economy, SUVs — handpicked vehicles from verified vendors. Instant booking. Zero hassle.</p>
+        <div class="hero-actions">
+          <button class="btn-hero" onclick="showPage('vehicles')">Browse Fleet <i class="fas fa-arrow-right"></i></button>
+          <button class="btn-ghost" onclick="openModal('signupModal')">Create Account</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num" data-count="500">0</span><span class="stat-label">Vehicles</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><span class="stat-num" data-count="12000">0</span><span class="stat-label">Happy Riders</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><span class="stat-num" data-count="98">0</span><span class="stat-label">Satisfaction</span></div>
+        </div>
+      </div>
+      <div class="hero-car">
+        <div class="car-visual">
+          <div class="car-glow-ring"></div>
+          <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&h=400&fit=crop" alt="car" class="car-img"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRENDING VEHICLES -->
+    <section class="trending-section">
+      <div class="section-header-flex">
+        <div>
+          <h2 class="section-title">TRENDING <span class="accent">PICKS</span></h2>
+          <p class="section-sub">Most booked vehicles this month</p>
+        </div>
+        <button class="btn-outline" onclick="showPage('vehicles')">View All <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="trending-grid" id="trendingVehicles"></div>
+    </section>
+
+    <section class="features-section">
+      <h2 class="section-title">WHY <span class="accent">DRIVEEASE</span></h2>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Verified Vendors</h3>
+          <p>Every vendor is admin-approved. Your safety and trust is our top priority on every rental.</p>
+        </div>
+        <div class="feat-card feat-card--accent">
+          <div class="feat-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Instant Booking</h3>
+          <p>Browse, book, and receive confirmation in seconds. No waiting, no paperwork.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fas fa-car"></i></div>
+          <h3>Diverse Fleet</h3>
+          <p>Economy hatchbacks to luxury SUVs — filter by type, price, and availability.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fas fa-headset"></i></div>
+          <h3>24/7 Support</h3>
+          <p>Our team is always ready to assist. Reach us anytime via chat, email, or phone.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section">
+      <h2 class="section-title">HOW IT <span class="accent">WORKS</span></h2>
+      <div class="steps-row">
+        <div class="step"><div class="step-num">01</div><div class="step-icon"><i class="fas fa-user-plus"></i></div><h4>Create Account</h4><p>Sign up in seconds with your email and password.</p></div>
+        <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+        <div class="step"><div class="step-num">02</div><div class="step-icon"><i class="fas fa-search"></i></div><h4>Browse Cars</h4><p>Filter vehicles by type, price, and availability.</p></div>
+        <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+        <div class="step"><div class="step-num">03</div><div class="step-icon"><i class="fas fa-calendar-check"></i></div><h4>Book Online</h4><p>Pick dates and confirm your rental instantly.</p></div>
+        <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+        <div class="step"><div class="step-num">04</div><div class="step-icon"><i class="fas fa-key"></i></div><h4>Drive Away</h4><p>Receive confirmation and pick up your car.</p></div>
+      </div>
+    </section>
+
+    <section class="testimonials-section">
+      <h2 class="section-title">WHAT RIDERS <span class="accent">SAY</span></h2>
+      <div class="testimonials-grid">
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Booked a luxury SUV for my weekend trip. Seamless process, amazing car. Will use DriveEase again!"</p>
+          <div class="testi-author"><div class="testi-avatar">AK</div><span>Arjun Kumar</span></div>
+        </div>
+        <div class="testi-card testi-card--featured">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"As a vendor, adding my vehicles was so simple. Admin approval was quick and bookings started flowing in within days!"</p>
+          <div class="testi-author"><div class="testi-avatar">PR</div><span>Priya Rentals</span></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <p>"Got a confirmation the moment I booked. Great communication, verified vendor, and a spotless car. 10/10 experience."</p>
+          <div class="testi-author"><div class="testi-avatar">SM</div><span>Sneha M.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="cta-content">
+        <h2>READY TO HIT THE ROAD?</h2>
+        <p>Join thousands of happy riders. Sign up free today.</p>
+        <button class="btn-hero" onclick="openModal('signupModal')">Start Now <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </section>
+  </section>
+
+  <!-- ========== VEHICLES PAGE ========== -->
+  <section id="page-vehicles" class="page">
+    <div class="page-header">
+      <h1>OUR <span class="accent">FLEET</span></h1>
+      <p>Browse and book from our curated collection of verified vehicles.</p>
+    </div>
+    
+    <!-- Filter Tags -->
+    <div class="filter-tags-container">
+      <div class="filter-tags" id="filterTags">
+        <button class="filter-tag active" data-type="" onclick="filterByTag(this, '')"><i class="fas fa-th"></i> All</button>
+        <button class="filter-tag" data-type="sedan" onclick="filterByTag(this, 'sedan')"><i class="fas fa-car"></i> Sedan</button>
+        <button class="filter-tag" data-type="suv" onclick="filterByTag(this, 'suv')"><i class="fas fa-truck"></i> SUV</button>
+        <button class="filter-tag" data-type="hatchback" onclick="filterByTag(this, 'hatchback')"><i class="fas fa-car-side"></i> Hatchback</button>
+        <button class="filter-tag" data-type="luxury" onclick="filterByTag(this, 'luxury')"><i class="fas fa-gem"></i> Luxury</button>
+      </div>
+    </div>
+
+    <div class="vehicles-toolbar">
+      <div class="search-box"><i class="fas fa-search"></i><input type="text" id="vehicleSearch" placeholder="Search by name or type..." oninput="filterVehicles()"/></div>
+      <div class="filter-group">
+        <select id="sortFilter" onchange="filterVehicles()">
+          <option value="name">Sort by Name</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+        </select>
+      </div>
+    </div>
+    <div class="vehicles-grid" id="vehiclesGrid"></div>
+  </section>
+
+  <!-- ========== ABOUT PAGE ========== -->
+<section id="page-about" class="page">
+  <div class="page-header">
+    <h1>ABOUT <span class="accent">US</span></h1>
+  </div>
+
+  <div class="about-content">
+
+    <!-- Logo / Image Section -->
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=400&fit=crop%27;" alt="DriveEase Logo">
+    </div>
+
+    <!-- Text Section -->
+    <div class="about-text">
+      <h2>Built for Drivers,<br/>Powered by Trust</h2>
+
+      <p>
+        DriveEase is a full-scale car rental platform connecting verified vendors 
+        with users who want hassle-free vehicle rentals. We believe renting a car 
+        should be as easy as ordering food online.
+      </p>
+
+      <p>
+        Our platform features separate modules for users, vendors, and admins — 
+        ensuring every stakeholder has the right tools, permissions, and visibility 
+        to operate smoothly.
+      </p>
+
+      <div class="about-tags">
+        <span class="tag">User Bookings</span>
+        <span class="tag">Vendor Management</span>
+        <span class="tag">Admin Control</span>
+        <span class="tag">Notifications</span>
+        <span class="tag">Profile Management</span>
+        <span class="tag">Order Tracking</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- ========== CONTACT PAGE ========== -->
+  <section id="page-contact" class="page">
+    <div class="page-header">
+      <h1>CONTACT <span class="accent">US</span></h1>
+      <p>Get in touch with our admin team for any queries or support.</p>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-info-cards">
+        <div class="contact-info-card">
+          <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+          <h4>Email Us</h4>
+          <p>admin@driveease.com</p>
+          <span>We reply within 2 hours</span>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+          <h4>Call Us</h4>
+          <p>+91 98765 00000</p>
+          <span>Mon–Sat, 9AM–7PM IST</span>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h4>Visit Us</h4>
+          <p>123, MG Road, Bengaluru</p>
+          <span>Karnataka, India — 560001</span>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+          <h4>Support Hours</h4>
+          <p>24/7 Emergency Line</p>
+          <span>+91 98765 11111</span>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3>Send a Message</h3>
+        <div class="form-group"><label>Your Name</label><input type="text" id="contactName" placeholder="Full name"/></div>
+        <div class="form-group"><label>Email</label><input type="email" id="contactEmail" placeholder="you@email.com"/></div>
+        <div class="form-group"><label>Subject</label>
+          <select id="contactSubject">
+            <option value="">Select subject</option>
+            <option>Booking Issue</option><option>Refund Request</option>
+            <option>Vehicle Complaint</option><option>Vendor Inquiry</option><option>General Query</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea id="contactMessage" rows="5" placeholder="Describe your issue or question..."></textarea></div>
+        <button class="btn-primary btn-full" onclick="submitContact()">Send Message <i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRIVACY PAGE ========== -->
+  <section id="page-privacy" class="page">
+    <div class="page-header"><h1>PRIVACY <span class="accent">POLICY</span></h1><p>Last updated: January 2025</p></div>
+    <div class="legal-content">
+      <div class="legal-section">
+        <h3><i class="fas fa-database"></i> Data We Collect</h3>
+        <p>We collect information you provide directly to us, such as when you create an account, make a booking, or contact support. This includes your name, email address, phone number, city, and booking history.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-lock"></i> How We Use Your Data</h3>
+        <p>Your data is used solely to operate and improve the DriveEase platform — processing bookings, communicating confirmations, resolving disputes, and personalizing your experience. We never sell your personal information to third parties.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-shield-alt"></i> Data Security</h3>
+        <p>We implement industry-standard security measures including encrypted storage, secure connections (HTTPS), and access controls. However, no method of transmission over the Internet is 100% secure.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-cookie"></i> Cookies</h3>
+        <p>DriveEase uses cookies and local storage to maintain your session and preferences. You can disable cookies in your browser settings, though this may affect platform functionality.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-user-edit"></i> Your Rights</h3>
+        <p>You have the right to access, correct, or delete your personal data at any time. You can manage your profile from your dashboard or contact our admin team at admin@driveease.com.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-envelope"></i> Contact</h3>
+        <p>For privacy-related concerns, email us at <strong>privacy@driveease.com</strong> or call <strong>+91 98765 00000</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TERMS PAGE ========== -->
+  <section id="page-terms" class="page">
+    <div class="page-header"><h1>TERMS OF <span class="accent">SERVICE</span></h1><p>Last updated: January 2025</p></div>
+    <div class="legal-content">
+      <div class="legal-section">
+        <h3><i class="fas fa-file-contract"></i> Acceptance of Terms</h3>
+        <p>By using DriveEase, you agree to these Terms of Service. If you do not agree, please do not use the platform. We reserve the right to update these terms at any time.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-car"></i> Booking Policy</h3>
+        <p>All bookings are subject to vehicle availability and vendor confirmation. Users must be 18+ years of age with a valid driving license. DriveEase acts as a marketplace and is not directly liable for vehicle condition.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-rupee-sign"></i> Payments & Refunds</h3>
+        <p>Payment is due at the time of booking. Cancellations made 24+ hours before pickup are eligible for a full refund. Late cancellations may incur a fee. Refunds are processed within 5–7 business days.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-store"></i> Vendor Responsibilities</h3>
+        <p>Vendors are responsible for vehicle accuracy, cleanliness, and roadworthiness. Misleading listings may result in account suspension. Vendors must maintain valid insurance on all listed vehicles.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-ban"></i> Prohibited Use</h3>
+        <p>Users may not use DriveEase for illegal activities, subletting rented vehicles, or providing false information. Violations may result in immediate account termination and legal action.</p>
+      </div>
+      <div class="legal-section">
+        <h3><i class="fas fa-gavel"></i> Governing Law</h3>
+        <p>These terms are governed by the laws of India. Any disputes shall be resolved in the courts of Bengaluru, Karnataka.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== USER DASHBOARD ========== -->
+  <section id="page-user-dashboard" class="page">
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <div class="sidebar-profile">
+          <div class="sidebar-avatar" id="userAvatarSidebar">U</div>
+          <div class="sidebar-name" id="userNameSidebar">User</div>
+          <div class="sidebar-role">Customer</div>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#" class="sidebar-link active" onclick="showDashTab('myBookings',this)"><i class="fas fa-list-alt"></i> My Bookings</a>
+          <a href="#" class="sidebar-link" onclick="showDashTab('browseVehicles',this)"><i class="fas fa-car"></i> Browse Cars</a>
+          <a href="#" class="sidebar-link" onclick="showDashTab('userProfile',this)"><i class="fas fa-user-edit"></i> My Profile</a>
+          <a href="#" class="sidebar-link" onclick="showDashTab('contactAdmin',this)"><i class="fas fa-headset"></i> Contact Admin</a>
+        </nav>
+        <button class="btn-danger-outline sidebar-signout" onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+      </aside>
+      <div class="dash-main">
+
+        <!-- My Bookings -->
+        <div id="tab-myBookings" class="dash-tab active">
+          <h2 class="dash-title">My <span class="accent">Bookings</span></h2>
+          <div id="userBookingsList" class="bookings-list"></div>
+        </div>
+
+        <!-- Browse Vehicles (user) -->
+        <div id="tab-browseVehicles" class="dash-tab">
+          <h2 class="dash-title">Available <span class="accent">Vehicles</span></h2>
+          <div class="vehicles-toolbar" style="padding:0 0 24px 0;">
+            <div class="search-box"><i class="fas fa-search"></i><input type="text" id="dashVehicleSearch" placeholder="Search..." oninput="filterDashVehicles()"/></div>
+            <select id="dashTypeFilter" onchange="filterDashVehicles()">
+              <option value="">All Types</option>
+              <option value="sedan">Sedan</option>
+              <option value="suv">SUV</option>
+              <option value="hatchback">Hatchback</option>
+              <option value="luxury">Luxury</option>
+            </select>
+          </div>
+          <div class="vehicles-grid" id="dashVehiclesGrid" style="padding:0;"></div>
+        </div>
+
+        <!-- User Profile -->
+        <div id="tab-userProfile" class="dash-tab">
+          <h2 class="dash-title">My <span class="accent">Profile</span></h2>
+          <div class="profile-form">
+            <div class="form-row">
+              <div class="form-group"><label>Full Name</label><input type="text" id="profileName"/></div>
+              <div class="form-group"><label>Email</label><input type="email" id="profileEmail" readonly/></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Phone</label><input type="text" id="profilePhone" placeholder="+91 XXXXX XXXXX"/></div>
+              <div class="form-group"><label>City</label><input type="text" id="profileCity" placeholder="Your city"/></div>
+            </div>
+            <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+            <button class="btn-danger-outline" style="margin-left:12px" onclick="deleteAccount()">Delete Account</button>
+            <div class="profile-legal-links">
+              <i class="fas fa-info-circle"></i>
+              <span>By using DriveEase you agree to our</span>
+              <a href="#" onclick="showPage('terms')">Terms of Service</a>
+              <span>and</span>
+              <a href="#" onclick="showPage('privacy')">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Admin (User) -->
+        <div id="tab-contactAdmin" class="dash-tab">
+          <h2 class="dash-title">Contact <span class="accent">Admin</span></h2>
+          <div class="contact-admin-layout">
+            <div class="admin-contact-cards">
+              <div class="admin-contact-card">
+                <div class="admin-contact-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <h4>Email Support</h4>
+                  <p>admin@driveease.com</p>
+                  <span>Response within 2 hours</span>
+                </div>
+              </div>
+              <div class="admin-contact-card">
+                <div class="admin-contact-icon"><i class="fas fa-phone"></i></div>
+                <div>
+                  <h4>Phone Support</h4>
+                  <p>+91 98765 00000</p>
+                  <span>Mon–Sat, 9AM–7PM IST</span>
+                </div>
+              </div>
+              <div class="admin-contact-card">
+                <div class="admin-contact-icon"><i class="fas fa-ambulance"></i></div>
+                <div>
+                  <h4>Emergency Line</h4>
+                  <p>+91 98765 11111</p>
+                  <span>Available 24/7</span>
+                </div>
+              </div>
+              <div class="admin-contact-card">
+                <div class="admin-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                  <h4>Office Address</h4>
+                  <p>123, MG Road, Bengaluru</p>
+                  <span>Karnataka — 560001</span>
+                </div>
+              </div>
+            </div>
+            <div class="contact-form-wrap" style="margin-top:32px;">
+              <h3>Send a Message to Admin</h3>
+              <div class="form-group"><label>Subject</label>
+                <select id="userContactSubject">
+                  <option value="">Select subject</option>
+                  <option>Booking Issue</option><option>Refund Request</option>
+                  <option>Vehicle Complaint</option><option>General Query</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Message</label><textarea id="userContactMessage" rows="5" placeholder="Describe your issue..."></textarea></div>
+              <button class="btn-primary" onclick="submitUserContact()">Send to Admin <i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADMIN DASHBOARD ========== -->
+  <section id="page-admin-dashboard" class="page">
+    <div class="dashboard-layout">
+      <aside class="sidebar sidebar--admin">
+        <div class="sidebar-profile">
+          <div class="sidebar-avatar">A</div>
+          <div class="sidebar-name">Admin</div>
+          <div class="sidebar-role">Administrator</div>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#" class="sidebar-link active" onclick="showAdminTab('adminBookings',this)"><i class="fas fa-calendar-alt"></i> Bookings</a>
+          <a href="#" class="sidebar-link" onclick="showAdminTab('adminVendors',this)"><i class="fas fa-store"></i> Vendors</a>
+          <a href="#" class="sidebar-link" onclick="showAdminTab('adminVehicles',this)"><i class="fas fa-car"></i> Vehicles</a>
+          <a href="#" class="sidebar-link" onclick="showAdminTab('adminUsers',this)"><i class="fas fa-users"></i> Users</a>
+          <a href="#" class="sidebar-link" onclick="showAdminTab('adminMessages',this)"><i class="fas fa-inbox"></i> Messages</a>
+        </nav>
+        <button class="btn-danger-outline sidebar-signout" onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+      </aside>
+      <div class="dash-main">
+
+        <!-- Admin Bookings -->
+        <div id="tab-adminBookings" class="dash-tab active">
+          <h2 class="dash-title">All <span class="accent">Bookings</span></h2>
+          <div id="adminBookingsList" class="bookings-list"></div>
+        </div>
+
+        <!-- Admin Vendors -->
+        <div id="tab-adminVendors" class="dash-tab">
+          <h2 class="dash-title">Vendor <span class="accent">Management</span></h2>
+          <div class="sort-bar">
+            <span>Sort by:</span>
+            <button class="sort-btn" onclick="sortVendors('name')">Name</button>
+            <button class="sort-btn" onclick="sortVendors('status')">Status</button>
+          </div>
+          <div id="adminVendorsList" class="data-table-wrap"></div>
+        </div>
+
+        <!-- Admin Vehicles -->
+        <div id="tab-adminVehicles" class="dash-tab">
+          <h2 class="dash-title">Vehicle <span class="accent">Management</span></h2>
+          <div id="adminVehiclesList" class="data-table-wrap"></div>
+        </div>
+
+        <!-- Admin Users -->
+        <div id="tab-adminUsers" class="dash-tab">
+          <h2 class="dash-title">User <span class="accent">Management</span></h2>
+          <div class="sort-bar">
+            <span>Sort by:</span>
+            <button class="sort-btn" onclick="sortUsers('name')">Name</button>
+            <button class="sort-btn" onclick="sortUsers('email')">Email</button>
+          </div>
+          <div id="adminUsersList" class="data-table-wrap"></div>
+        </div>
+
+        <!-- Admin Messages -->
+        <div id="tab-adminMessages" class="dash-tab">
+          <h2 class="dash-title">User <span class="accent">Messages</span></h2>
+          <div id="adminMessagesList" class="bookings-list"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VENDOR DASHBOARD ========== -->
+  <section id="page-vendor-dashboard" class="page">
+    <div class="dashboard-layout">
+      <aside class="sidebar sidebar--vendor">
+        <div class="sidebar-profile">
+          <div class="sidebar-avatar" id="vendorAvatarSidebar">V</div>
+          <div class="sidebar-name" id="vendorNameSidebar">Vendor</div>
+          <div class="sidebar-role">Vendor Partner</div>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#" class="sidebar-link active" onclick="showVendorTab('vendorVehicles',this)"><i class="fas fa-car-side"></i> My Vehicles</a>
+          <a href="#" class="sidebar-link" onclick="showVendorTab('vendorOrders',this)"><i class="fas fa-bell"></i> Order Notifications</a>
+          <a href="#" class="sidebar-link" onclick="showVendorTab('addVehicle',this)"><i class="fas fa-plus-circle"></i> Add Vehicle</a>
+        </nav>
+        <button class="btn-danger-outline sidebar-signout" onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+      </aside>
+      <div class="dash-main">
+
+        <div id="tab-vendorVehicles" class="dash-tab active">
+          <h2 class="dash-title">My <span class="accent">Vehicles</span></h2>
+          <div id="vendorVehiclesList" class="data-table-wrap"></div>
+        </div>
+
+        <div id="tab-vendorOrders" class="dash-tab">
+          <h2 class="dash-title">Order <span class="accent">Notifications</span></h2>
+          <div id="vendorOrdersList" class="bookings-list"></div>
+        </div>
+
+        <div id="tab-addVehicle" class="dash-tab">
+          <h2 class="dash-title">Add <span class="accent">Vehicle</span></h2>
+          <div class="profile-form">
+            <div class="form-row">
+              <div class="form-group"><label>Vehicle Name</label><input type="text" id="vehName" placeholder="e.g. Toyota Camry"/></div>
+              <div class="form-group"><label>Type</label>
+                <select id="vehType">
+                  <option value="sedan">Sedan</option><option value="suv">SUV</option>
+                  <option value="hatchback">Hatchback</option><option value="luxury">Luxury</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Daily Rate (₹)</label><input type="number" id="vehPrice" placeholder="e.g. 2500"/></div>
+              <div class="form-group"><label>Seats</label><input type="number" id="vehSeats" placeholder="e.g. 5"/></div>
+            </div>
+            
+            <!-- IMAGE UPLOAD SECTION -->
+            <div class="form-group">
+              <label><i class="fas fa-camera"></i> Vehicle Images</label>
+              <div class="image-upload-container">
+                <input type="file" id="vehImages" accept="image/*" multiple onchange="previewImages(event)" style="display:none"/>
+                <button type="button" class="btn-upload" onclick="document.getElementById('vehImages').click()">
+                  <i class="fas fa-cloud-upload-alt"></i> Upload Images
+                </button>
+                <span class="upload-hint">Upload up to 5 high-quality images of your vehicle</span>
+              </div>
+              <div id="imagePreviewContainer" class="image-preview-container"></div>
+            </div>
+            
+            <div class="form-group"><label>Description</label><textarea id="vehDesc" rows="3" placeholder="Brief vehicle description..."></textarea></div>
+            <div class="info-note"><i class="fas fa-info-circle"></i> Vehicle will be submitted for admin approval before listing.</div>
+            <button class="btn-primary" onclick="addVehicle()">Submit Vehicle <i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== MODALS ========== -->
+
+<!-- Sign Up -->
+<div class="modal-overlay" id="signupModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('signupModal')"><i class="fas fa-times"></i></button>
+    <div class="modal-header"><h2>Create <span class="accent">Account</span></h2><p>Join DriveEase today — free forever</p></div>
+    <div class="form-group"><label>Full Name</label><input type="text" id="signupName" placeholder="Your full name"/></div>
+    <div class="form-group"><label>Email</label><input type="email" id="signupEmail" placeholder="you@email.com"/></div>
+    <div class="form-group"><label>Password</label><input type="password" id="signupPass" placeholder="Min 6 characters"/></div>
+    <button class="btn-primary btn-full" onclick="signUp()">Create Account</button>
+    <p class="modal-footer-text">Already have an account? <a href="#" onclick="switchModal('signupModal','signinModal')">Sign In</a></p>
+    <p class="modal-legal-text">By signing up you agree to our <a href="#" onclick="closeModal('signupModal');showPage('terms')">Terms</a> & <a href="#" onclick="closeModal('signupModal');showPage('privacy')">Privacy Policy</a></p>
+    <div class="modal-divider"><span>or</span></div>
+    <button class="btn-outline btn-full" onclick="adminLogin()">Continue as Admin (Demo)</button>
+  </div>
+</div>
+
+<!-- Sign In -->
+<div class="modal-overlay" id="signinModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('signinModal')"><i class="fas fa-times"></i></button>
+    <div class="modal-header"><h2>Welcome <span class="accent">Back</span></h2><p>Sign in to your account</p></div>
+    <div class="form-group"><label>Email</label><input type="email" id="signinEmail" placeholder="you@email.com"/></div>
+    <div class="form-group"><label>Password</label><input type="password" id="signinPass" placeholder="Your password"/></div>
+    <button class="btn-primary btn-full" onclick="signIn()">Sign In</button>
+    <p class="modal-footer-text">No account? <a href="#" onclick="switchModal('signinModal','signupModal')">Sign Up</a></p>
+    <div class="modal-divider"><span>or</span></div>
+    <button class="btn-outline btn-full" onclick="adminLogin()">Admin Demo Login</button>
+  </div>
+</div>
+
+<!-- Vendor Sign Up -->
+<div class="modal-overlay" id="vendorSignupModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('vendorSignupModal')"><i class="fas fa-times"></i></button>
+    <div class="modal-header"><h2>Vendor <span class="accent">Registration</span></h2><p>List your vehicles on DriveEase</p></div>
+    <div class="form-group"><label>Business Name</label><input type="text" id="vendorName" placeholder="Your business name"/></div>
+    <div class="form-group"><label>Email</label><input type="email" id="vendorEmail" placeholder="business@email.com"/></div>
+    <div class="form-group"><label>Password</label><input type="password" id="vendorPass" placeholder="Min 6 characters"/></div>
+    <button class="btn-primary btn-full" onclick="vendorSignUp()">Register as Vendor</button>
+    <p class="modal-footer-text">Already a vendor? <a href="#" onclick="switchModal('vendorSignupModal','vendorSigninModal')">Sign In</a></p>
+  </div>
+</div>
+
+<!-- Vendor Sign In -->
+<div class="modal-overlay" id="vendorSigninModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('vendorSigninModal')"><i class="fas fa-times"></i></button>
+    <div class="modal-header"><h2>Vendor <span class="accent">Sign In</span></h2><p>Access your vendor dashboard</p></div>
+    <div class="form-group"><label>Email</label><input type="email" id="vendorSigninEmail" placeholder="business@email.com"/></div>
+    <div class="form-group"><label>Password</label><input type="password" id="vendorSigninPass" placeholder="Your password"/></div>
+    <button class="btn-primary btn-full" onclick="vendorSignIn()">Sign In</button>
+    <p class="modal-footer-text">New vendor? <a href="#" onclick="switchModal('vendorSigninModal','vendorSignupModal')">Register</a></p>
+  </div>
+</div>
+
+<!-- Booking Modal -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('bookingModal')"><i class="fas fa-times"></i></button>
+    <div class="modal-header"><h2>Book <span class="accent">Vehicle</span></h2><p id="bookingVehicleName">Vehicle Name</p></div>
+    <div class="form-row">
+      <div class="form-group"><label>Pickup Date</label><input type="date" id="bookingStart"/></div>
+      <div class="form-group"><label>Return Date</label><input type="date" id="bookingEnd"/></div>
+    </div>
+    <div class="booking-summary" id="bookingSummary"></div>
+    <button class="btn-primary btn-full" onclick="confirmBooking()">Confirm Booking <i class="fas fa-check"></i></button>
+  </div>
+</div>
+
+<!-- Vehicle Detail Modal -->
+<div class="modal-overlay" id="vehicleDetailModal">
+  <div class="modal modal-large">
+    <button class="modal-close" onclick="closeModal('vehicleDetailModal')"><i class="fas fa-times"></i></button>
+    <div id="vehicleDetailContent"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-brand">DRIVE<span>EASE</span></div>
+  <p>© 2025 DriveEase. All rights reserved. Premium Car Rental Platform.</p>
+  <div class="footer-links">
+    <a href="#" onclick="showPage('privacy')">Privacy Policy</a>
+    <a href="#" onclick="showPage('terms')">Terms of Service</a>
+    <a href="#" onclick="showPage('contact')">Contact Us</a>
+    <a href="#" onclick="showPage('about')">About</a>
+  </div>
+  <div class="footer-contact">
+    <span><i class="fas fa-envelope"></i> admin@driveease.com</span>
+    <span><i class="fas fa-phone"></i> +91 98765 00000</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
